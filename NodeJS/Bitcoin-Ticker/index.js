@@ -21,9 +21,5 @@ app.post("/", function(req, res) {
   request("https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD", function(error, response, body) {
     console.log(response.statusCode);
     console.log(body);
-
   });
-
-
-
 });
