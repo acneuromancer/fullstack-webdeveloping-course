@@ -1,0 +1,33 @@
+/************************ Tag selectors ************************/
+
+body {
+  background-color: #ff8260;
+}
+
+h1 {
+  color: red;
+  font-size: 100px;
+}
+
+img {
+  background-color: red;
+}
+
+img:hover {
+  background-color: gold;
+}
+/************************ Class selectors ************************/
+
+.bacon {
+  background-color: green;
+}
+
+.circular {
+  border-radius: 100%;
+}
+
+/************************ Id selectors ************************/
+
+#firstparapgraph {
+  font-size: 30px;
+}
