@@ -7,36 +7,53 @@ const app = express();
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-var items = ["Buy Food", "Cook Food", "Eat Food"];
-
+let items = ["Buy Food", "Cook Food", "Eat Food"];
+let workItems = [];
 
 app.get("/", function(req, res) {
-  var today = new Date();
+  let today = new Date();
 
-  var options = {
+  let options = {
     weekday: "long",
     day: "numeric",
     month: "long"
   };
 
-  var day = today.toLocaleDateString("en-US", options);
+  let day = today.toLocaleDateString("en-US", options);
 
   res.render("list", {
-    kindOfDay: day,
+    listTitle: day,
     newListItems: items
   });
 });
 
-
 app.post("/", function(req, res) {
-  item = req.body.newItem;
-  items.push(item);
-  console.log(item);
-  res.redirect("/");
+  console.log(req.body.list);
+
+  let item = req.body.newItem;
+
+  if (req.body.list === "Work") {
+    workItems.push(item);
+    res.redirect("/work");
+  } else {
+    items.push(item);
+    res.redirect("/");
+  }
 });
 
+app.get("/work", function(req, res) {
+  res.render("list", {
+    listTitle: "Work",
+    newListItems: workItems
+  });
+});
+
+app.get("/about", function(req, res){
+  res.render("about");
+});
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
