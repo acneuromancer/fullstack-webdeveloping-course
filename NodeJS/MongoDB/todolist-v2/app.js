@@ -21,7 +21,7 @@ app.use(express.static("public"));
 
 mongoose.connect("mongodb+srv://<user:password>@cluster0-ch42r.mongodb.net/todolistDB", {
   useNewUrlParser: true
-})
+});
 
 const itemsSchema = {
   name: String
