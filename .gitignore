@@ -1,3 +1,11 @@
+# Just a mock project for practising how to use github
 git/
+
+# Downloaded just to check may own solution
 DOM/Dicee - according to tutorial
+
+# Dependency directories
 node_modules
+
+# dotenv environment variables file
+.env
